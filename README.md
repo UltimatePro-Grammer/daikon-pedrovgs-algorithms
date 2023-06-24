@@ -1,4 +1,4 @@
-# Algorithms
+# Using Daikon on [pedrovgs/Algorithms](https://github.com/pedrovgs/Algorithms)
 
 ```bash
 # compile with maven
@@ -26,3 +26,9 @@ java -cp ./target/classes:./target/test-classes:./junit-4.13.1.jar:./hamcrest-co
 [View the output of the last command here.](https://gist.github.com/UltimatePro-Grammer/119e8c5edd16cff7e8cb08810c32692a)
 
 After running these commands, you will have a (misleadingly-named) `JUnitCore.inv.gz` file containing all of the invariants found on the source code. After un-gzipping, the file JUnitCore.inv will be a serialized form of the [`daikon.PptMap`](http://plse.cs.washington.edu/daikon/download/api/daikon/PptMap.html) class.
+
+```bash
+gunzip JUnitCore.inv.gz
+javac -cp .:$DAIKONDIR/daikon.jar ReadDaikonInvariants.java
+java -cp .:$DAIKONDIR/daikon.jar ReadDaikonInvariants JUnitCore.inv
+```
